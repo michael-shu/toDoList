@@ -1,0 +1,92 @@
+
+#container{
+    margin: auto;
+    text-align: center;
+    background-color: lightskyblue;
+    width: 750px;
+    border-radius: 25px;
+}
+ol {
+    margin: 50px;
+    padding: 60px;
+  }
+
+ol li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: white;
+    font-size: 18px;
+    transition: 0.2s;
+    text-align: center;
+
+    border: black;
+  
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+ol li.checked{
+    background: #05445E;
+    color: rgba(255, 255, 255, 0.242);
+    text-decoration:line-through;
+}
+
+ol li.checked::before{
+    content:'';
+    position: absolute;
+    border-color: black;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
+button {
+    width: 20px;
+    height: 40px;
+    display: block;
+    background: skyblue;
+    outline: none;
+    border: none;
+    align-self: initial;
+    align-items: stretch;
+    transition: all 500ms ease;
+  }
+
+  button:hover{
+    background:#030352ce;
+    /*matrix( scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY() )*/
+    transform: matrix(1.5, 0, 0, 1.5, 0,0);
+  }
+
+  .btnDone {
+    background: #030352ce;
+    color: #fff;
+    transition: 300ms ease-in-out;
+    
+  }
+  
+.btn{
+    width: auto;
+    height: auto;
+    border: white;
+    outline: auto;
+    border-radius:auto;
+    align-items: center;
+    margin: 40px;
+}
+
+/*animation : animation-name 
+animation-duration 
+timing-function(how the thing transitions) 
+animation delay(how many seconds the animation waits to run eg: 2 seconds, it will wait 2 seconds to start
+-2 means that it will already be done with 2 seconds of the anim when you start)
+animation-iteration count(how many times, infinite is a choice)
+animation-direction(from the 0% to 100% or start at 100% go to 0%)*/
