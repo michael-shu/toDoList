@@ -1,7 +1,6 @@
 'use strict';
 
 const add = document.getElementById('add');
-
 add.addEventListener('click', function(){
     let test = document.querySelector('input').value;
 
@@ -10,51 +9,79 @@ add.addEventListener('click', function(){
         /* Create a node, add it to the ol using DOM*/
         let input = document.querySelector('input').value;
         let btnDone = document.createElement("button");
+
+        
+        btnDone.className = 'toggleCompleted';
+        btnDone.innerHTML = '✓';
         let node = document.createElement('li');
 
         node.appendChild(document.createTextNode(input));
         node.appendChild(btnDone);
 
-        btnDone.innerHTML = "<i class='fas fa-check'></i>";
         btnDone.addEventListener("click", () => {
             done();
     });
-
     function done() {
-        node.classList.toggle("checked");
+        //To designate the list item as checked for completion
+        node.classList.toggle('checked');
+        
+        //To restyle the button itself when you click it
         btnDone.classList.toggle("btnDone");
       }
 
-        document.getElementById('list').appendChild(node);
+        document.getElementById('toDo').appendChild(node);
         document.getElementById('input').value = '';
-        
-        const list = document.querySelector('list');
     }
 });
 
-const clear = document.getElementById('clear');
 
+const clear = document.getElementById('clear');
 clear.addEventListener('click',function(){
-    let myList = document.getElementById('list');
+    let myList = document.getElementById('completed');
     myList.innerHTML = '';
 });
 
-if(list){
-list.addEventListener('dblclick',function(){
-    console.log('Something is happening');
-    console.log(list);
+
+const moveToCompleted = document.getElementById('completeButton');
+moveToCompleted.addEventListener('click',function(){
+
+    let mover = document.getElementsByClassName('checked');
+    let completed = document.getElementById('completed')
+    for(let i = 0; i<mover.length;i++)
+    {
+        let temp = mover[i].textContent;
+        let input = removeCheckMark(temp);
+        let node = document.createElement('li');
+        node.appendChild(document.createTextNode(input));
+        completed.append(node);
+        
+    }
+    for(let i = mover.length-1; i>=0; i--)
+    {
+        mover[i].remove();
+    }
 });
+
+function removeCheckMark(str){
+    let temp = str.slice(0,-1);
+    return temp;
 }
 
-const remove = document.getElementById('rC');
+const toggle = document.getElementById('dropdownMenuToggle');
+const menu = document.getElementById('dropdownMenu');
+toggle.addEventListener('click',function(){
+    menu.classList.toggle('show');
 
-remove.addEventListener('click',function(){
+    console.log(toggle.ariaExpanded);
+    console.log(typeof(toggle.ariaExpanded));
 
-    let removal = document.getElementsByClassName('checked');
-    for(let i = removal.length-1; i>=0; i--)
+    if(toggle.ariaExpanded === 'true')
     {
-        removal[i].remove();
+        toggle.ariaExpanded = false;
+    } else {
+        toggle.ariaExpanded = true;
     }
+
 });
 
 
