@@ -1,15 +1,12 @@
 
 .container{
-  margin: auto;
   text-align: center;
   background-color: lightskyblue;
   border-radius: 25px;
-  position: relative;
 }
 
 ol li {
   background: white;
-  font-size: 100%;
   transition: 0.2s;
 
   text-align:left;
@@ -25,7 +22,6 @@ ol li {
 
 ul li{
   background: white;
-  font-size: 100%;
   transition: 0.2s;
 
   text-align:left;
@@ -45,12 +41,6 @@ ol li.checked{
   text-decoration:line-through;
 }
 
-ol li div {
-  display: flex;
-  justify-content: space-between;
-  padding: 5px;
-}
-
 /*Before the button is selected, just sitting there so the task isn't done*/
 .toggleCompleted{
   background: skyblue;
@@ -62,19 +52,16 @@ ol li div {
 }
 
 .dropdown-menu{
-  position:absolute;
   top: 100%; /* Bottom of button */
   right: 0;
-  margin-left:100px; /* More to the left */
 }
 
 .btn-success{
-  border: white;
   outline: auto;
 }
 
-/*Now the button has bbeen clicked, the task is done*/
 
+/*Now the button has been clicked, the task is done*/
 .btnDone {
   background: #030352ce;
   transition: 300ms ease-in-out;
@@ -86,15 +73,16 @@ ol li div {
     height: 25px;
   }
 
-  ol {
-    margin: 15px;
-  }
   ol li{
-    padding-bottom:20px;
+    padding:5px;
   }
 
   ul{
     margin: 15px;
+  }
+
+  ul li{
+    padding: 5px;
   }
 }
 
@@ -106,14 +94,12 @@ ol li div {
     }
   ol li{
     padding:20px;
-  }
-
-  ul{
-    margin: 15px;
+    font-size:larger;
   }
 
   ul li{
     padding:20px;
+    font-size:larger;
   }
 
   .toggleCompleted{
@@ -122,12 +108,10 @@ ol li div {
   }
 }
 
-
-
-/*animation : animation-name 
-animation-duration 
-timing-function(how the thing transitions) 
-animation delay(how many seconds the animation waits to run eg: 2 seconds, it will wait 2 seconds to start
--2 means that it will already be done with 2 seconds of the anim when you start)
-animation-iteration count(how many times, infinite is a choice)
-animation-direction(from the 0% to 100% or start at 100% go to 0%)*/
+@media(min-width:992px)
+{
+  .toggleCompleted{
+    width:40px;
+    height:40px;
+  }
+}
